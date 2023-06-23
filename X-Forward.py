@@ -1,20 +1,25 @@
 import bpy
+from bpy.types import AddonPreferences, Operator
+from bpy.props import StringProperty
+ 
+# Add-on info ------------------------------
 
 bl_info = {
     "name": "X-Forward View",
-    "description": """Introducing "X-Forward View" - the Blender add-on that lets you quickly and easily change your viewport to the X-forward location!
-Have you ever found yourself struggling to find the perfect angle for your model or scene? With X-Forward View, you can quickly and easily switch to the X-forward location, allowing you to view your work from a new perspective and make better decisions.This simple yet powerful add-on adds a new operator to the Viewport menu, making it easy to access and use. Simply select the X-forward View operator and your viewport will be instantly transformed. X-Forward View is perfect for 3D artists, designers, and anyone who wants to streamline their workflow and take their work to the next level. So why wait? Try X-Forward View today and start seeing your work in a whole new way!""",
-    "author": "K3D",
-    "version": (1, 0),
+    "description": "Rotate 3d view to the top view x forward",
+    "author": "Vladislav Komkov",
+    "version": (1, 1),
     "blender": (2, 80, 0),
     "location": "View3D > View > Top x forward",
     "warning": "",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "Object",
+    "category": "3D View",
 }
 
-class Top_x_forward(bpy.types.Operator):
+# Operator ------------------------------
+
+class Top_x_forward(Operator):
     """Top x forward"""
     bl_idname = "rotate3d_view.top_x"
     bl_label = "Rotate 3d view x top"
@@ -22,16 +27,27 @@ class Top_x_forward(bpy.types.Operator):
     def execute(self, context):
         for area in context.screen.areas:
             if area.type == 'VIEW_3D':
-                area.spaces[0].region_3d.view_rotation = (0.7071068, 0, 0, 0.7071068)
-                area.spaces[0].region_3d.view_perspective = 'ORTHO'
-                break
+                for space in area.spaces:
+                    if space.type == 'VIEW_3D':
+                        region_3d = space.region_3d
+                        # Top x forward
+                        region_3d.view_rotation = (-0.7071068, 0, 0, 0.7071068)
+
+                        # Orthographic view
+                        region_3d.view_perspective = 'ORTHO'
+                        region_3d.is_orthographic_side_view = True
+                        region_3d.is_perspective = False
+                        break
         return {'FINISHED'}
 
 def menu_draw(self, context):
     self.layout.operator(Top_x_forward.bl_idname)
 
+# Register and unregister functions ------------------------------
+
 def register():
     bpy.utils.register_class(Top_x_forward)
+    bpy.utils.register_class(ShortcutInfoAddonPreferences)
     bpy.types.VIEW3D_MT_view.append(menu_draw)
 
 def unregister():
@@ -41,3 +57,22 @@ def unregister():
 
 if __name__ == "__main__":
     register()
+
+# Helpers ------------------------------
+
+# Define the add-on preferences
+class ShortcutInfoAddonPreferences(AddonPreferences):
+    bl_idname = __name__
+
+    info_text: StringProperty(name="Shortcut Info", default="""
+    To assign a shortcut to the "Top x forward" command:
+    1. go to the "Keymap" tab in the Blender settings and select the "3D View" section.
+    2. in the "Identifier" field, enter "rotate3d_view.top_x".
+    4. click on the "Key-Binding" field and press the desired key combination.
+    """)
+
+    def draw(self, context):
+        layout = self.layout
+        layout.label(text="Shortcut:")
+        for line in self.info_text.splitlines():
+            layout.label(text=line)

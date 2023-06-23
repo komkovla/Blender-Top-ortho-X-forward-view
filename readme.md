@@ -1,11 +1,11 @@
 # Top Ortho X-Forward View Blender Addon
 
-Top Ortho X-Forward View is a light Blender addon that allows you to change the direction of the top view by setting the X axis as forward. With this addon, you can easily switch to a top view where the X axis is pointing forward instead of the default Y axis. This is particularly useful for modeling objects that are aligned with the X axis, such as cars or buildings.
+Top Ortho X-Forward View is a light Blender addon that allows you to change the direction of the top view by setting the X axis as forward. With this addon, you can easily switch to a top view where the X-axis is pointing forward instead of the default Y-axis. This is particularly useful for modelling objects that are aligned with the X-axis, such as cars or buildings.
 
 ## Key Features
 
 - Changes the direction of the top view to set the X axis forward.
-- Improves modeling workflow for objects aligned with the X axis.
+Improves modelling workflow for objects aligned with the X-axis.
 - Easy to apply using Quick Favorites or shortcut (setup from preferences).
 
 ## Installation
@@ -33,4 +33,4 @@ The Top Ortho X-Forward View addon has no configuration options.
 
 ## Credits
 
-This addon was created by [Your Name] and is available under the MIT license. If you find any issues or have any suggestions, please feel free to [create an issue](https://github.com/your_username/top-ortho-x-forward-view-addon/issues/new) on the repository. Thank you for using Top Ortho X-Forward View!
+This addon was created by Komkov Vladislav and Komkov Valentin and is available under the MIT license. If you find any issues or have any suggestions, please feel free to [create an issue](https://github.com/your_username/top-ortho-x-forward-view-addon/issues/new) on the repository. Thank you for using Top Ortho X-Forward View!
