@@ -6,11 +6,11 @@ from bpy.props import StringProperty
 
 bl_info = {
     "name": "X-Forward View",
-    "description": "Rotate 3d view to the top view x forward",
+    "description": "Rotate 3d view to the top view x axis forward",
     "author": "Vladislav Komkov",
     "version": (1, 1, 1),
     "blender": (2, 80, 0),
-    "location": "View3D > View > Top x forward",
+    "location": "View3D > View > Top view X forward",
     "warning": "",
     "wiki_url": "",
     "tracker_url": "",
@@ -22,7 +22,7 @@ bl_info = {
 class Top_x_forward(Operator):
     """Top x forward"""
     bl_idname = "wm.rotate3d_view_top_x"
-    bl_label = "Rotate 3d view x top"
+    bl_label = "Top view X forward"
 
     def execute(self, context):
         for area in context.screen.areas:
@@ -66,8 +66,8 @@ class ShortcutInfoAddonPreferences(AddonPreferences):
     bl_idname = __name__
 
     info_text: StringProperty(name="Shortcut Info", default="""
-    To assign a shortcut to the "Top x forward" command:
-    3D Viewport - View - Right-mouse-click - assign shortcut
+    To assign a shortcut to the "Top view X forward" command:
+    3D Viewport - View - Top view X forward - Right-mouse-click - assign shortcut
     """)
 
     def draw(self, context):
