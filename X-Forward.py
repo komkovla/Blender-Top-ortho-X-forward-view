@@ -66,9 +66,7 @@ class ShortcutInfoAddonPreferences(AddonPreferences):
 
     info_text: StringProperty(name="Shortcut Info", default="""
     To assign a shortcut to the "Top x forward" command:
-    1. go to the "Keymap" tab in the Blender settings and select the "3D View" section.
-    2. in the "Identifier" field, enter "rotate3d_view.top_x".
-    3. click on the "Key-Binding" field and press the desired key combination.
+    3D Viewport - View - Right-mouse-click - assign shortcut
     """)
 
     def draw(self, context):
