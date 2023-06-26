@@ -52,6 +52,7 @@ def register():
 
 def unregister():
     bpy.utils.unregister_class(Top_x_forward)
+    bpy.utils.unregister_class(ShortcutInfoAddonPreferences)
     bpy.types.VIEW3D_MT_view.remove(menu_draw)
 
 
