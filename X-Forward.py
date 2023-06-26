@@ -8,7 +8,7 @@ bl_info = {
     "name": "X-Forward View",
     "description": "Rotate 3d view to the top view x forward",
     "author": "Vladislav Komkov",
-    "version": (1, 1),
+    "version": (1, 1, 1),
     "blender": (2, 80, 0),
     "location": "View3D > View > Top x forward",
     "warning": "",
@@ -21,7 +21,7 @@ bl_info = {
 
 class Top_x_forward(Operator):
     """Top x forward"""
-    bl_idname = "rotate3d_view.top_x"
+    bl_idname = "wm.rotate3d_view_top_x"
     bl_label = "Rotate 3d view x top"
 
     def execute(self, context):
