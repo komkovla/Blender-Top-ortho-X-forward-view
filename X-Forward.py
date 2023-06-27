@@ -5,7 +5,7 @@ from bpy.props import StringProperty
 # Add-on info ------------------------------
 
 bl_info = {
-    "name": "X-Forward View",
+    "name": "Top view X forward",
     "description": "Rotate 3d view to the top view x axis forward",
     "author": "Vladislav Komkov",
     "version": (1, 1, 1),
